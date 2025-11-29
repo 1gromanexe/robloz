@@ -11761,7 +11761,7 @@ Main = (function()
 	end
 
 	Main.LoadModules = function()
-		for i,v in pairs(Main.ModuleList) do
+		for i,v in pairs(Main.ModuleList) do task.wait()
 			local s,e = pcall(Main.LoadModule,v)
 			if not s then
 				Main.Error(("FAILED LOADING %s CAUSE %s"):format(v, e))
@@ -11787,7 +11787,7 @@ Main = (function()
 		Main.AppControls.Lib.InitAfterMain(appTable)
 		for i,v in pairs(Main.ModuleList) do
 			local control = Main.AppControls[v]
-			if control then
+			if control then task.wait()
 				control.InitAfterMain(appTable)
 			end
 		end
