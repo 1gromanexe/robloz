@@ -12612,7 +12612,7 @@ Main = (function()
 		})
 
 		-- Fetch version if needed
-		intro.SetProgress("Fetching Roblox Version",0.2)
+		--[[intro.SetProgress("Fetching Roblox Version",0.2)
 		if Main.Elevated then
 			local fileVer = Lib.ReadFile("dex/deps_version.dat")
 			Main.ClientVersion = Version()
@@ -12629,7 +12629,7 @@ Main = (function()
 			if #Main.RobloxVersion < 1 then
 				Main.RobloxVersion = oldgame:HttpGet("https://raw.githubusercontent.com/infyiff/backup/refs/heads/main/deps_version.dat"):gsub("%s+", "")
 			end
-		end
+		end]]
 
 		-- Fetch external deps
 		intro.SetProgress("Fetching API",0.35)
