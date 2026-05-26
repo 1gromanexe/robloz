@@ -11761,7 +11761,7 @@ Main = (function()
 	end
 
 	Main.LoadModules = function()
-		for i,v in pairs(Main.ModuleList) do task.wait()
+		for i,v in pairs(Main.ModuleList) do
 			local s,e = pcall(Main.LoadModule,v)
 			if not s then
 				Main.Error(("FAILED LOADING %s CAUSE %s"):format(v, e))
@@ -11787,7 +11787,7 @@ Main = (function()
 		Main.AppControls.Lib.InitAfterMain(appTable)
 		for i,v in pairs(Main.ModuleList) do
 			local control = Main.AppControls[v]
-			if control then task.wait()
+			if control then
 				control.InitAfterMain(appTable)
 			end
 		end
@@ -12626,7 +12626,13 @@ Main = (function()
 			Main.RobloxVersion = Main.RobloxVersion or oldgame:HttpGet("http://setup.roblox.com/versionQTStudio")
 
 			-- backup for kaboom
-			if #Main.RobloxVersion < 1 then
+			local balabol=false
+			local Suka,Errak=pcall(function()
+				balabol=(#Main.RobloxVersion < 1)
+			end)
+			if Suka==false then balabol=true end
+			--if #Main.RobloxVersion < 1 then
+			if balabol==true then
 				Main.RobloxVersion = oldgame:HttpGet("https://raw.githubusercontent.com/infyiff/backup/refs/heads/main/deps_version.dat"):gsub("%s+", "")
 			end
 		end
